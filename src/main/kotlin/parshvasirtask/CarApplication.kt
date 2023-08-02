@@ -24,11 +24,7 @@ fun main() {
     carList.add(Car("a","a",100,20))
     carList.add(Car("b","b",100,20))
     carList.add(Car("b","b",100,20))
-    for(i in 0..500){
-        val m = ('a'..'z').random()
-        carList.add(Car(m.toString(),m.toString(),i,i))
 
-    }
 
     while (true) {
         println("-----------------------------------------------------------------")
@@ -181,15 +177,52 @@ fun showCar(carList: MutableList<Car>) {
 
 
 fun addCar(carList: MutableList<Car>) {
+    val pattern = "^[a-z]+[0-9]*"
+    var carName = ""
+    var modelName = ""
+    var maxSpeed = 0
+    var currentSpeed = 0
     println("please enter your car detail")
-    println("enter car name")
-    val carName = readln()
-    println("enter model name")
-    val modelName = readln()
-    println("enter max speed")
-    val maxSpeed = readln().toInt()
-    println("enter current speed")
-    val currentSpeed = readln().toInt()
+    w1@while (true){
+        println("enter car name")
+        carName = readln()
+        if (Regex(pattern).matches(carName)){
+            break@w1
+        }
+        else{
+            println("Enter valid name....")
+        }
+    }
+    w2@while (true){
+        println("enter model name")
+        modelName = readln()
+        if (Regex(pattern).matches(carName)){
+            break@w2
+        }
+        else{
+            println("Enter valid model name....")
+        }
+    }
+    w3@while (true){
+        println("enter max speed")
+        maxSpeed = readln().toInt()
+        if ( maxSpeed in 0..400){
+            break@w3
+        }
+        else{
+            println("Max speed must between 0 to 400")
+        }
+    }
+    w4@while (true){
+        println("enter current speed")
+        currentSpeed = readln().toInt()
+        if (currentSpeed in 0..400){
+            break@w4
+        }
+        else{
+            println("current speed must be in 0 to 400")
+        }
+    }
 
     carList.add(Car(carName, modelName, maxSpeed, currentSpeed))
     println(carList.last())
