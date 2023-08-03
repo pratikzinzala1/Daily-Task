@@ -42,17 +42,18 @@ fun printMainOptions(){
         println("1 for view car list")
         println("2 for search car or car operation")
         println("3 for adding car")
+        println("0 for exit")
         println("-----------------------------------------------------------------")
         try {
             when (readln().toInt()) {
-                1 -> showCartList()
+                0 -> return
+                1 -> showCarList()
                 2 -> searchCar()
                 3 -> addCar()
                 else -> {
                     throw IllegalArgumentException("please enter valid number")
                 }
             }
-
         } catch (e: Exception) {
             println("please enter valid number")
             continue
@@ -61,7 +62,7 @@ fun printMainOptions(){
 
 }
 
-fun showCartList() {
+fun showCarList() {
     CarList.list.forEach {
         it.printCartDetails()
     }
@@ -187,7 +188,7 @@ fun addCar() {
     w2@ while (true) {
         println("enter model name")
         modelName = readln()
-        if (Regex(pattern).matches(carName)) {
+        if (Regex(pattern).matches(modelName)) {
             break@w2
         } else {
             println("Enter valid model name....")
@@ -205,10 +206,10 @@ fun addCar() {
     w4@ while (true) {
         println("enter current speed")
         currentSpeed = readln().toInt()
-        if (currentSpeed in 0..400) {
+        if (currentSpeed in 0..maxSpeed) {
             break@w4
         } else {
-            println("current speed must be in 0 to 400")
+            println("current speed must less or equal max Speed")
         }
     }
 

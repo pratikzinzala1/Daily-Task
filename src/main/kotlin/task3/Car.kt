@@ -19,6 +19,7 @@ open class Car: Vehicle {
     override val paymentMode: PaymentMode = PaymentMode.NO_PAYMENT
     override val numberOfDoors: Int = 4
     override val isRunning: Boolean = false
+    override val isStarted: Boolean = false
     override val vehicleKey: Int = 0
 
     final override val fuelType: FuelType =FuelType.PETROL
@@ -28,16 +29,16 @@ open class Car: Vehicle {
     override fun getDetails() {
         println("fuelType of the car is $fuelType")
         println("number of tyre is $numberOfTyre")
-        println("maximum speed of the car is ${maxSpeed}")
+        println("maximum speed of the car is $maxSpeed")
     }
 
     override fun buyCar(amount: Int, paymentType: PaymentMode) {}
 
     override fun buyCar(amount: Int, paymentType: PaymentMode, discount: Int) {}
 
-    override fun start(key: Int) {}
+    override fun start(key: Int,callBack: (Boolean) -> Unit) {}
 
-    override fun start(key: Int, fuelType: FuelType) {}
+    override fun start(key: Int, fuelType: FuelType,callBack: (Boolean) -> Unit) {}
 
     override fun stop() {}
 

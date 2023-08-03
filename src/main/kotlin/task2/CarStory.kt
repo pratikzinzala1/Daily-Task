@@ -1,6 +1,6 @@
 package task2
 
-//Task Date 01/08/2023
+//Task Date 02/08/2023
 //Polymorphism
 fun main() {
 

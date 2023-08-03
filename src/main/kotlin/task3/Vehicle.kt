@@ -26,14 +26,16 @@ interface Vehicle {
 
     val isRunning:Boolean
 
+    val isStarted:Boolean
+
     val vehicleKey:Int
 
     fun getDetails()
     fun buyCar(amount: Int, paymentType: PaymentMode)
     fun buyCar(amount: Int, paymentType: PaymentMode, discount: Int)
 
-    fun start(key: Int)
-    fun start(key: Int, fuelType: FuelType)
+    fun start(key: Int,callBack: (Boolean) -> Unit)
+    fun start(key: Int, fuelType: FuelType,callBack: (Boolean) -> Unit)
 
     fun stop()
 

@@ -1,21 +1,63 @@
 package task3
 
-class Baleno(override val carName: String): Car(){
+class Baleno(override val carName: String) : Car() {
     init {
         println("$carName created")
-        hasSafetyFeature(true,true)
+        hasSafetyFeature(hasSeatbelt = true, hasAirBags = true)
     }
 
     override var vehicleKey: Int = 0
         private set
     override val engineNumber: Int = 101
-
-    fun setCarKey(key:Int){
-        vehicleKey = key
-    }
-
+    override var isStarted: Boolean = false
     override var vehiclePrice: Int = 0
     override var paymentMode: PaymentMode = PaymentMode.NO_PAYMENT
+
+
+    fun setCarKey(key: Int, callBack: (Int) -> Unit) {
+        vehicleKey = key
+        callBack(vehicleKey)
+    }
+
+    override var isRunning: Boolean = false
+
+    fun driveCar() {
+        if (isStarted) {
+            isRunning = true
+            println("Car is Running..........")
+        } else {
+            println("Start car first")
+        }
+
+    }
+
+    override fun start(key: Int,callBack: (Boolean) -> Unit) {
+        if (vehicleKey == key) {
+            isStarted = true
+            println("Car has started..........")
+            callBack(vehicleKey==key)
+        } else {
+            println("Please insert original key")
+            callBack(vehicleKey==key)
+        }
+    }
+
+    override fun start(key: Int, fuelType: FuelType,callBack: (Boolean) -> Unit) {
+
+    }
+
+    override fun stop() {
+        if (isStarted||isRunning){
+            isRunning = false
+            isStarted = false
+            println("Car get stopped..........")
+        }
+        else{
+            println("Car already stopped..........")
+        }
+
+    }
+
 
     override fun buyCar(amount: Int, paymentType: PaymentMode) {
         vehiclePrice = amount
@@ -33,8 +75,10 @@ class Baleno(override val carName: String): Car(){
 
     override fun getDetails() {
         super.getDetails()
-        println("Car name is $carName and engine number is $engineNumber" +
-                "\nnumber of tyre is $numberOfTyre and doors is $numberOfDoors")
+        println(
+            "Car name is $carName and engine number is $engineNumber" +
+                    "\nnumber of tyre is $numberOfTyre and doors is $numberOfDoors"
+        )
 
     }
 

@@ -1,19 +1,48 @@
 package task3
 
-//Task Date 01/08/2023
+//Task Date 03/08/2023
 //Polymorphism
 fun main() {
 
+    val mihir = Person("mihir")
+    val yug = Person("yug")
+
+
     val baleno1 = Baleno("baleno1")
-    baleno1.buyCar(700000,PaymentMode.CASH,100000)
-    baleno1.setCarKey(123)
+    mihir.buyCar(baleno1){
+        println(it)
+        baleno1.setCarKey(123){key->
+            mihir.setKey(key)
+        }
+    }
+
+    println()
 
     val baleno2 = Baleno("baleno2")
-    baleno2.buyCar(700000,PaymentMode.CARD)
-    baleno2.setCarKey(234)
+    yug.buyCar(baleno2){
+        println(it)
+        baleno2.setCarKey(999){key->
+            yug.setKey(key)
+        }
+    }
+
+    println()
+
+    with(baleno2){
+        start(yug.insertKey()){
+            if (it){driveCar()}
+        }
+        stop()
+    }
+
+    println()
+
+    with(baleno1){
+        stop()
+    }
 
 
-    baleno2.getDetails()
+
 
 
 }
