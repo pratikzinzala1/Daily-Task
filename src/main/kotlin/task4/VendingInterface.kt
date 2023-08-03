@@ -9,11 +9,12 @@ interface VendingInterface {
 
     fun selectProduct(option: Int)
     fun insertMoney(money: Int)
-    fun buyDrink(name: Drinks)
+    fun insertMoney(money: Int,coupon:Int)
+    fun buyDrink()
     fun listDrink()
 
     fun initializeMachine()
 
-    fun returnMoney(callBack: (Int) -> Int)
+    fun returnMoney(callBack: (Int) -> Unit)
 
 }
