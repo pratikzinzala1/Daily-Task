@@ -43,7 +43,25 @@ class Baleno(override val carName: String) : Car() {
     }
 
     override fun start(key: Int, fuelType: FuelType,callBack: (Boolean) -> Unit) {
+        if (vehicleKey == key) {
+            isStarted = true
+            when(fuelType){
+                FuelType.CNG->{
+                    println("Car has started using CNG Gas..........")
+                }
+                FuelType.DIESEL->{
+                    isStarted = false
+                    println("Car get malfunction due to using wrong fuel")
+                }
+                FuelType.PETROL->{
 
+                }
+            }
+            callBack(vehicleKey==key)
+        } else {
+            println("Please insert original key")
+            callBack(vehicleKey==key)
+        }
     }
 
     override fun stop() {

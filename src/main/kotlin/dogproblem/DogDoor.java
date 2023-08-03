@@ -5,15 +5,15 @@ import java.util.TimerTask;
 
 public class DogDoor {
     private boolean open;
-    private String allowedBark;
+    private Bark allowedBark;
     public DogDoor() {
         this.open = false;
     }
 
-    public void setAllowedBark(String bark) {
+    public void setAllowedBark(Bark bark) {
         this.allowedBark = bark;
     }
-    public String getAllowedBark() {
+    public Bark getAllowedBark() {
         return allowedBark;
     }
     public void open() {

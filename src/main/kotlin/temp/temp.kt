@@ -3,9 +3,11 @@ package temp
 
 fun main(){
 
-    val pattern = "[a-z]*[0-9]"
-    val str = "ftdfa"
+    test('a'.toInt())
 
-    println(Regex(pattern).matches(str))
+}
 
+fun test(a:Int){
+
+    println(a)
 }
