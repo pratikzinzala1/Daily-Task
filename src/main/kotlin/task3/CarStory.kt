@@ -29,7 +29,7 @@ fun main() {
     println()
 
     with(baleno2){
-        start(yug.insertKey(),FuelType.CNG){
+        start(mihir.insertKey(),FuelType.CNG){
             if (it){driveCar()}
         }
         stop()

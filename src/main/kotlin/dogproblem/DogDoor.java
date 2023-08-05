@@ -1,19 +1,21 @@
 package dogproblem;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class DogDoor {
     private boolean open;
-    private Bark allowedBark;
+    private LinkedList<Bark> allowedBark = new LinkedList<Bark>();
     public DogDoor() {
         this.open = false;
     }
 
-    public void setAllowedBark(Bark bark) {
-        this.allowedBark = bark;
+    public void addAllowedBark(Bark bark) {
+        this.allowedBark.add(bark);
     }
-    public Bark getAllowedBark() {
+    public List<Bark> getAllowedBarks() {
         return allowedBark;
     }
     public void open() {

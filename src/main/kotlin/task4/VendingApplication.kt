@@ -16,14 +16,14 @@ fun main() {
         println("Please select option")
         println("1 for enter money")
         println("2 for enter money and apply coupon")
+        println("3 for admin task")
         when (readln().toInt()) {
             1 -> {
                 inputLoop(false) {
                     println("Enter Your amount")
                     vendingMachine.insertMoney(readln().toInt())
-
                 }
-
+                listOutDrinks(vendingMachine)
             }
 
             2 -> {
@@ -32,26 +32,33 @@ fun main() {
                 println("Enter your coupon code")
                 vendingMachine.insertMoney(amount, readln().toInt())
                 println("Your new amount is ${vendingMachine.insertedAmount}")
+                listOutDrinks(vendingMachine)
             }
-
+            3->{
+                vendingMachine.getAdminData()
+            }
             else -> {
                 throw IllegalArgumentException("")
             }
         }
 
-        vendingMachine.listDrink()
-        inputLoop(false) {
-            println("Please select your drink ")
-            val selectedOption = readln().toInt()
-            if (selectedOption in 0..2) {
-                vendingMachine.selectProduct(selectedOption)
-                vendingMachine.buyDrink()
-            } else {
-                throw IllegalArgumentException("")
-            }
 
+    }
 
+}
+
+fun listOutDrinks(vendingMachine:VendingInterface){
+    vendingMachine.listDrink()
+    inputLoop(false) {
+        println("Please select your drink ")
+        val selectedOption = readln().toInt()
+        if (selectedOption in 0..2) {
+            vendingMachine.selectProduct(selectedOption)
+            vendingMachine.buyDrink()
+        } else {
+            throw IllegalArgumentException("")
         }
+
 
     }
 

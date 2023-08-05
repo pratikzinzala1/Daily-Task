@@ -12,17 +12,17 @@ class VendingMachine : VendingInterface {
     override var selectedDrink: Int? = null
         private set
 
-    private val couponList:List<Int> = listOf(123,456)
+    private val couponList: List<Int> = listOf(123, 456)
 
+    private val admin: Admin = Admin()
     override fun insertMoney(money: Int) {
         insertedAmount = money
     }
 
     override fun insertMoney(money: Int, coupon: Int) {
-        if (couponList.contains(coupon)){
+        if (couponList.contains(coupon)) {
             insertedAmount = money + 20
-        }
-        else{
+        } else {
             println("invalid coupon")
         }
     }
@@ -31,11 +31,13 @@ class VendingMachine : VendingInterface {
         selectedDrink = option
     }
 
+
     override fun buyDrink() {
-        drinkList[selectedDrink!!].updateDrink(insertedAmount) {remainingAmount->
+        drinkList[selectedDrink!!].updateDrink(insertedAmount) { remainingAmount, collectedAmount ->
+            admin.collectionList[selectedDrink!!].updateCollection(collectedAmount)
             insertedAmount = remainingAmount
             returnMoney {
-                if (it>0) println("Here is your money $it")
+                if (it > 0) println("Here is your money $it")
             }
         }
     }
@@ -57,5 +59,7 @@ class VendingMachine : VendingInterface {
         drinkList.add(Drink(Drinks.THUMPS_UP, 30, 3))
     }
 
-
+    override fun getAdminData() {
+        admin.printCollection()
+    }
 }

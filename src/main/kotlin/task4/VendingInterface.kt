@@ -15,6 +15,7 @@ interface VendingInterface {
 
     fun initializeMachine()
 
+    fun getAdminData()
     fun returnMoney(callBack: (Int) -> Unit)
 
 }

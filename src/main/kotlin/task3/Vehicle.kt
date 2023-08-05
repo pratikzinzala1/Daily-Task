@@ -39,6 +39,4 @@ interface Vehicle {
 
     fun stop()
 
-
-
 }
