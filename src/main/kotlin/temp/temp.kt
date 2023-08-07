@@ -1,13 +1,10 @@
 package temp
 
 
-fun main(){
+fun main() {
 
-    test('a'.toInt())
+    val x: Int = 10
+    val z: Int = (x as? Int) ?: 1
+    println(z.plus(1))
 
-}
-
-fun test(a:Int){
-
-    println(a)
 }

@@ -1,24 +1,30 @@
-package task5
+package task5_update
+
+import task5.HouseType
+import task5.PowerSupplyMode
+import task5.WaterSupplyMode
 
 
-abstract class BuildingAbstracts {
-    protected abstract val buildingName: String
-    protected abstract val buildingFloors: Int
-    protected abstract val cementType: String
-    protected abstract val liftAvailability: Boolean
-    protected abstract val parkingCapacityForBike: Int
-    protected abstract val parkingCapacityForCar: Int
-    protected abstract val address: String
-    protected abstract var owner: String
-    protected abstract val expiryDate: String
-    protected abstract val houseType: HouseType
-    protected abstract var isSoloarAvailable: Boolean
-    protected abstract var powerSupplyMode: PowerSupplyMode
+class Building(
+    override var buildingName: String,
+    override var buildingFloors: Int,
+    override var cementType: String,
+    override var liftAvailability: Boolean,
+    override var parkingCapacityForBike: Int,
+    override var parkingCapacityForCar: Int,
+    override var address: String,
+    override var owner: String,
+    override var expiryDate: String,
+    override var houseType: HouseType,
+    override var isSoloarAvailable: Boolean,
 
-    protected abstract var isOwnWellIsAvailable: Boolean
-    protected abstract var waterSupplyMode: WaterSupplyMode
+    override var isOwnWellIsAvailable: Boolean,
 
-    open fun printBuildingDetail() {
+    ) : BuildingInterface {
+
+    override var powerSupplyMode: PowerSupplyMode = PowerSupplyMode.NO_SUPPLY
+    override var waterSupplyMode: WaterSupplyMode = WaterSupplyMode.NO_WATER_SUPPLY
+    override fun printBuildingDetail() {
         println()
         println("Building Name : $buildingName which has following facility")
         println("Building type : $houseType")
@@ -34,7 +40,7 @@ abstract class BuildingAbstracts {
     }
 
 
-    open fun supplyElectricity() {
+    override fun supplyElectricity() {
         if (isSoloarAvailable) {
             powerSupplyMode = PowerSupplyMode.SOLAR
             powerSupplyMode.printSupply(buildingName)
@@ -44,7 +50,7 @@ abstract class BuildingAbstracts {
         }
     }
 
-    open fun supplyElectricity(stop: Boolean) {
+    override fun supplyElectricity(stop: Boolean) {
         if (stop) {
             powerSupplyMode = PowerSupplyMode.NO_SUPPLY
             powerSupplyMode.printSupply(buildingName)
@@ -54,7 +60,7 @@ abstract class BuildingAbstracts {
 
     }
 
-    open fun supplyWater() {
+    override fun supplyWater() {
         if (isOwnWellIsAvailable) {
             waterSupplyMode = WaterSupplyMode.BORE_WELL
             waterSupplyMode.printWaterSupply(buildingName)
@@ -64,7 +70,7 @@ abstract class BuildingAbstracts {
         }
     }
 
-    open fun supplyWater(stop: Boolean) {
+    override fun supplyWater(stop: Boolean) {
         if (stop) {
             waterSupplyMode = WaterSupplyMode.NO_WATER_SUPPLY
             waterSupplyMode.printWaterSupply(buildingName)
@@ -74,11 +80,11 @@ abstract class BuildingAbstracts {
 
     }
 
-    open fun setSolarAvailability(isSolarAvailable: Boolean) {
+    override fun setSolarAvailability(isSolarAvailable: Boolean) {
         this.isSoloarAvailable = isSolarAvailable
     }
 
-    open fun setWaterAvailability(isOwnWaterSupplyAvailable: Boolean) {
+    override fun setWaterAvailability(isOwnWaterSupplyAvailable: Boolean) {
         this.isOwnWellIsAvailable = true
     }
 
