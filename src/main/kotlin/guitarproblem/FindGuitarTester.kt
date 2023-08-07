@@ -32,7 +32,7 @@ fun main() {
     }
 }
 
-private fun initializeInventory(inventory: Inventory) {
+fun initializeInventory(inventory: Inventory) {
 
     inventory.addInstrument(
         "V95693", 1499.95, GuitarSpec(
