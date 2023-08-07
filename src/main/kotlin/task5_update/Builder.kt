@@ -44,7 +44,7 @@ class Builder(
     }
 
     override fun printListOfProjectDone(percentageDone: Int) {
-        println("List of Project done by $percentageDone:")
+        println("List of Project done by $percentageDone %:")
         listOfProjectDoneByBuilder.forEach {
             if (it.howManyPercentOfTaskDone >= percentageDone) {
                 it.printProject()
