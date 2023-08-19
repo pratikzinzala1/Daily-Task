@@ -2,13 +2,6 @@ package task5_update
 
 interface BuilderInterface {
 
-
-    val builderName: String
-    val doBuilderHaveLicence: Boolean
-    val builderFees: Int
-    var realtyRatings: Int
-
-
     fun printReviews()
 
     fun printPersonalDetails()

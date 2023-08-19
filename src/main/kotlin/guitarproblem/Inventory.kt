@@ -1,7 +1,7 @@
 package guitarproblem
 
 class Inventory {
-     private val inventory: MutableList<Instrument> = mutableListOf()
+    private val inventory: MutableList<Instrument> = mutableListOf()
 
     fun addInstrument(
         serialNumber: String, price: Double, instrumentSpec: InstrumentSpec
@@ -24,7 +24,6 @@ class Inventory {
 //        return null
 //    }
     fun get(serialNumber: String): Instrument? {
-
         for (instrument in inventory) {
             if (instrument.serialNumber == serialNumber) {
                 return instrument
@@ -40,4 +39,5 @@ class Inventory {
         }
         return matchingInstrument
     }
+
 }

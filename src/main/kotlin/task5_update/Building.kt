@@ -6,24 +6,24 @@ import task5.WaterSupplyMode
 
 
 class Building(
-    override var buildingName: String,
-    override var buildingFloors: Int,
-    override var cementType: String,
-    override var liftAvailability: Boolean,
-    override var parkingCapacityForBike: Int,
-    override var parkingCapacityForCar: Int,
-    override var address: String,
-    override var owner: String,
-    override var expiryDate: String,
-    override var houseType: HouseType,
-    override var isSoloarAvailable: Boolean,
+    private var buildingName: String,
+    private var buildingFloors: Int,
+    private var cementType: String,
+    private var liftAvailability: Boolean,
+    private var parkingCapacityForBike: Int,
+    private var parkingCapacityForCar: Int,
+    private var address: String,
+    private var owner: String,
+    private var expiryDate: String,
+    private var houseType: HouseType,
+    private var isSoloarAvailable: Boolean,
 
-    override var isOwnWellIsAvailable: Boolean,
+    private var isOwnWellIsAvailable: Boolean,
 
     ) : BuildingInterface {
 
-    override var powerSupplyMode: PowerSupplyMode = PowerSupplyMode.NO_SUPPLY
-    override var waterSupplyMode: WaterSupplyMode = WaterSupplyMode.NO_WATER_SUPPLY
+    private var powerSupplyMode: PowerSupplyMode = PowerSupplyMode.NO_SUPPLY
+    private var waterSupplyMode: WaterSupplyMode = WaterSupplyMode.NO_WATER_SUPPLY
     override fun printBuildingDetail() {
         println()
         println("Building Name : $buildingName which has following facility")

@@ -1,6 +1,4 @@
-package parshvasirtask
-
-import java.util.*
+package parshvasirtask.task1
 
 data class Car(
 

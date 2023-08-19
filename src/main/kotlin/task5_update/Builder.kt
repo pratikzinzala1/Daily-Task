@@ -2,10 +2,10 @@ package task5_update
 
 
 class Builder(
-    override val builderName: String,
-    override val doBuilderHaveLicence: Boolean,
-    override val builderFees: Int,
-    override var realtyRatings: Int,
+    private val builderName: String,
+    private val doBuilderHaveLicence: Boolean,
+    private val builderFees: Int,
+    private var realtyRatings: Int,
 ) : BuilderInterface {
 
     private val listOfReview: MutableList<String> = mutableListOf()

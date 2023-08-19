@@ -11,14 +11,14 @@ fun main() {
     // Set up Rick’s guitar inventory
     val inventory = Inventory()
     initializeInventory(inventory)
-    val whatErinLikes:InstrumentSpec = GuitarSpec(Builderx.FENDER, "abc", Type.ACOUSTIC,12, Wood.ALDER, Wood.CEDAR)
+    val whatErinLikes = GuitarSpec(Builderx.FENDER, "abc", Type.ACOUSTIC, 12, Wood.ALDER, Wood.CEDAR)
     val whatErinLikes2 = MandolinSpec(Builderx.FENDER, "abc", Style.F, Type.ACOUSTIC, Wood.ALDER, Wood.CEDAR)
-    val matchingGuitars = inventory.search(whatErinLikes2)
+    val matchingGuitars = inventory.search(whatErinLikes)
 
-    if (!matchingGuitars.isEmpty()) {
-        val instrumentType = when(whatErinLikes){
-          is GuitarSpec->"Guitar"
-          else-> "Mandolin"
+    if (matchingGuitars.isNotEmpty()) {
+        val instrumentType = when (whatErinLikes) {
+            is GuitarSpec -> "Guitar"
+            else -> "Mandolin"
         }
         println("Erin, you might like these $instrumentType:")
         for (instrument in matchingGuitars) {
@@ -45,9 +45,7 @@ fun initializeInventory(inventory: Inventory) {
 
     inventory.addInstrument(
         "V95693", 1499.95, GuitarSpec(
-            Builderx.FENDER, "Stratocastor",
-            Type.ELECTRIC, 12, Wood.ALDER, Wood.ALDER
-        )
+            Builderx.FENDER, "abc", Type.ACOUSTIC, 12, Wood.ALDER, Wood.CEDAR)
     )
 
     inventory.addInstrument(

@@ -1,4 +1,4 @@
-package parshvasirtask
+package parshvasirtask.task1
 import java.lang.Exception
 import java.lang.IllegalArgumentException
 
