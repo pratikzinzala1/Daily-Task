@@ -10,7 +10,14 @@ fun main(){
     var tempMidpoint = midpoint
 
     for (i in 1..number) {
+        if (i > midpoint){
+            repeat(midpoint*2){
+                print(" ")
+
+            }
+        }
         for (x in 1..tempNumber) {
+
             if (x == tempNumber || x == tempMidpoint) {
                 print(lastChar)
             }else if (x < tempMidpoint){
@@ -22,7 +29,7 @@ fun main(){
         }
         println()
         if (i >= midpoint){
-         tempNumber--
+            tempNumber--
             tempMidpoint++
         }
         else{
