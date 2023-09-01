@@ -7,4 +7,5 @@ class Shop() {
         Thread.sleep(2000)
         car.alloy = Alloy.ALLOY3
     }
+
 }

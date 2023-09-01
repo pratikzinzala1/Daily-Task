@@ -7,7 +7,6 @@ fun main() {
     val mihir = Person("mihir")
     val yug = Person("yug")
 
-
     val baleno1 = Baleno("baleno1")
     mihir.buyCar(baleno1){
         println(it)
