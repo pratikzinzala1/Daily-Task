@@ -10,7 +10,6 @@ fun main() {
     f32.fightWithOtherPlan()
     f32.land()
 
-
     airbus.carryPeople()
     airbus.fly()
     airbus.provideServiceToPeople()

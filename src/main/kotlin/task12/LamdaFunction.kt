@@ -19,11 +19,6 @@ fun main() {
     printTotalBillNumber(::sumBill)
 
 
-    one{a:Int,b:Int->
-        a+b
-    }.also {
-        println(it)
-    }
 
     val noArgLambda = { println("This is no argument lambda") }
     noArgLambda()
@@ -34,19 +29,24 @@ fun main() {
         a*b
     }
 
-    println(multiply(2,2))
+    println(multiply(72,27))
+
+
+    one{a:Int,b:Int->
+        a+b
+    }.also {
+        println(it)
+    }
 
 }
-
-
-
-
 
 fun one(two:(Int,Int)->Int): Int {
 
     return three(two(1,1),two(1,1))
 
 }
+
+
 
 fun three(a:Int,b:Int):Int{
     return a+b
